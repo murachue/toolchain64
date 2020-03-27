@@ -33,7 +33,7 @@ TRIPLET=${TRIPLET:-mipsXX-elf}
 export PATH=$PATH:$INSTALL_PATH/bin
 
 # Versions
-BINUTILS_V=rsp-2_32
+BINUTILS_V=rsp-2_33_1
 GCC_V=9.1.0
 NEWLIB_V=3.1.0
 
