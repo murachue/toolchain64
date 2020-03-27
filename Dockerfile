@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 
 ARG JOBS
 
-RUN apt update && apt install -y build-essential wget git && apt clean
+RUN apt-get update && apt-get install -y build-essential libmpfr-dev libmpc-dev wget git texinfo && apt-get clean
 COPY build /
 RUN /build
 
