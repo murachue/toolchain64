@@ -33,17 +33,17 @@ TRIPLET=${TRIPLET:-mipsXX-elf}
 export PATH=$PATH:$INSTALL_PATH/bin
 
 # Versions
-BINUTILS_V=2.33.1
+BINUTILS_V=rsp-2_32
 GCC_V=9.1.0
 NEWLIB_V=3.1.0
 
 # Download stage
-test -f binutils-$BINUTILS_V.tar.bz2 || wget -c ftp://sourceware.org/pub/binutils/releases/binutils-$BINUTILS_V.tar.bz2
+#test -f binutils-$BINUTILS_V.tar.bz2 || wget -c ftp://sourceware.org/pub/binutils/releases/binutils-$BINUTILS_V.tar.bz2
 test -f gcc-$GCC_V.tar.gz || wget -c ftp://sourceware.org/pub/gcc/releases/gcc-$GCC_V/gcc-$GCC_V.tar.gz
 test -f newlib-$NEWLIB_V.tar.gz || wget -c ftp://sourceware.org/pub/newlib/newlib-$NEWLIB_V.tar.gz
 
 # Extract stage
-test -d binutils-$BINUTILS_V || tar -xjf binutils-$BINUTILS_V.tar.bz2
+test -d binutils-$BINUTILS_V || git clone --depth=1 -b $BINUTILS_V https://github.com/murachue/binutils-gdb binutils-$BINUTILS_V
 test -d gcc-$GCC_V || tar -xzf gcc-$GCC_V.tar.gz
 test -d newlib-$NEWLIB_V || tar -xzf newlib-$NEWLIB_V.tar.gz
 
