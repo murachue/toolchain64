@@ -26,8 +26,8 @@ INSTALL_PATH=${N64_INST:-/usr/local}
 JOBS=${JOBS:-1}
 FORCE_DEFAULT_GCC=${FORCE_DEFAULT_GCC:-true}
 
-TFLAGS=${TFLAGS:--G0 -O2 -mabi=XX}
-TRIPLET=${TRIPLET:-mipsXX-elf}
+TFLAGS=${TFLAGS:--G0 -O2 -mabi=n32}
+TRIPLET=${TRIPLET:-mips64-elf}
 
 # Set up path for newlib to compile later
 export PATH=$PATH:$INSTALL_PATH/bin
