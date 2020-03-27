@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 
 ARG JOBS
 
-RUN apt-get update && apt-get install -y build-essential libmpfr-dev libmpc-dev wget git texinfo && apt-get clean
+RUN apt-get update && apt-get install -y build-essential texinfo bison flex libmpfr-dev libmpc-dev wget git && apt-get clean
 COPY build /
 RUN /build
 
