@@ -7,6 +7,7 @@ Built images are published at: https://hub.docker.com/r/murachue/toolchain64
 - binutils with my RSP supported version: https://github.com/murachue/binutils-gdb
 - GCC
 - newlib
+- `*tools` branch/tag only: header, n64tool and chksum64 from [libdragon](https://github.com/DragonMinded/libdragon)
 - No other libraries/tools are installed (library-agnostic)
 - `o32`, `o64`, `n64` ABI support (libgcc/newlib)
 	- `o32` prefix is `mips-elf-`
