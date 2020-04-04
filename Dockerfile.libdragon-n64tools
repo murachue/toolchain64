@@ -1,0 +1,13 @@
+FROM murachue/toolchain64:o64
+WORKDIR /build
+RUN apt-get update && apt-get install -y build-essential && apt-get clean
+RUN git clone https://github.com/DragonMinded/libdragon && cd libdragon/tools && make N64_INST=/usr/local chksum64 n64tool
+# ugh. current master 5090bbe8322e6dcb93a42820fcec89cac8b483f5 does not allow only installing chksum64/n64tool but with dragonfs/sprite...
+RUN mkdir -p dist/bin dist/mips64-elf/lib
+RUN cd libdragon/tools && install -m 0755 chksum64 ../../dist/bin && install -m 0755 n64tool ../../dist/bin
+# header too.
+RUN cd libdragon && install -m 0644 header ../dist/mips64-elf/lib/header
+
+FROM murachue/toolchain64:o64
+# copy individual files
+COPY --from=0 /build/dist/ /usr/local/
