@@ -26,4 +26,5 @@ jobs:
         with:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/toolchain64:${{ github.ref_name }}
+          file: Dockerfile.libdragon-n64tools
           build-args: JOBS=${{ steps.cpucores.outputs.count }}
