@@ -22,6 +22,7 @@ Docker image tags are represented as branches in git repo.
 - https://github.com/anacierdem/libdragon-docker
 	- Another toolchain that also contains libdragon
 	- Pure binutils (not my RSP-supported version)
+	- `o64` ABI only
 	- https://hub.docker.com/r/anacierdem/libdragon
 - https://github.com/tj90241/n64chain
 	- Non-libdragon way toolchain
