@@ -80,7 +80,7 @@ mkdir gcc_compile
 
 # Compile binutils
 cd binutils-$BINUTILS_V
-./configure --prefix=${INSTALL_PATH} --target=$TRIPLET --with-cpu=mips64vr4300 --disable-werror
+./configure --prefix=${INSTALL_PATH} --target=$TRIPLET --with-cpu=mips64vr4300 --disable-werror --enable-tui
 make -j$JOBS
 make install || sudo make install || su -c "make install"
 
