@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:22.04
 
 ARG JOBS
 
@@ -6,6 +6,6 @@ RUN apt-get update && apt-get install -y build-essential texinfo bison flex libm
 COPY build /
 RUN /build
 
-FROM ubuntu:18.04
+FROM ubuntu:22.04
 RUN apt-get update && apt-get install -y libmpfr6 libmpc3 make git && apt-get clean
 COPY --from=0 /usr/local/ /usr/local/
