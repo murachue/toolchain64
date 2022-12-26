@@ -20,7 +20,10 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - uses: SimenB/github-actions-cpu-cores@ecaed1e931b8dd412cf251eadb6f5a69f7101f11  # v1.0.2
+        id: cpucores
       - uses: docker/build-push-action@c56af957549030174b10d6867f20e78cfd7debc5  # v3.2.0
         with:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/toolchain64:${{ github.ref_name }}
+          build-args: JOBS=${{ steps.cpucores.outputs.count }}
